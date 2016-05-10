@@ -19,7 +19,7 @@
                 
                 $code = $_GET['code'];
             
-                echo $message[$code];
+                echo $messages[$code];
             ?>
         </p>
     </body>
