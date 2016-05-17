@@ -53,10 +53,18 @@
 ?>
 
 <html>
-    <head></head>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <link rel="stylesheet" href="main.css">
+        
+        <script src="jquery.js"></script>
+        <script src="bootstrap.min.js"></script>
+    </head>
     <body>
-        <h3>Open Window Scavenger Hunt</h3>
         <div>
+            <h2 class="red-text">QR CODE</h2>
+            <h3 class="black-text">CHALLENGE</h3>
             <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST" && !$valid) {
                     echo "<div class='error'>$error</div>";

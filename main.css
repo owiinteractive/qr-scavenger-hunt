@@ -1,7 +1,43 @@
+body * {
+    font-family: 'Nunito', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000000;
+    margin: 0;
+}
+
+.middle {
+    text-align: center;
+}
+
+.confirm,.clue {
+    background-color: #D73F2B;
+    color: #ffffff;
+}
+
 .yes {
     background-color: lightblue;
 }
 
 .no {
     background-color: lightcoral;
+}
+
+.red-text {
+    color: #D73F2B;
+}
+
+.confirm input[type=submit] {
+    background-color: white;
+    color: #D73F2B;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+input[disabled] {
+    opacity: 0;
 }

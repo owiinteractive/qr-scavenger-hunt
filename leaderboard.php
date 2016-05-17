@@ -44,11 +44,17 @@
 
 <html>
     <head>
+        <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="bootstrap.min.css">
         <link rel="stylesheet" href="main.css">
+        
+        <script src="jquery.js"></script>
+        <script src="bootstrap.min.js"></script>
     </head>
-    <body>
-        <h3>Open Window Scavenger Hunt</h3>
-        <div>
+    <body class="container-fluid">
+        <h2 class="red-text">QR CODE</h2>
+        <h3 class="black-text">CHALLENGE</h3>
+        <div class="col-xs-12">
             <table>
                 <thead>
                     <tr>

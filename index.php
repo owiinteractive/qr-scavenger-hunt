@@ -46,17 +46,21 @@
 
 <html>
     <head>
+        <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="bootstrap.min.css">
         <link rel="stylesheet" href="main.css">
         
         <script src="jquery.js"></script>
+        <script src="bootstrap.min.js"></script>
         <script src="index.js"></script>
     </head>
-    <body>
-        <h3>Open Window Scavenger Hunt</h3>
-        <div>
-            <div class='lead'> <?php echo $messages[$code]; ?> </div>
+    <body class="container-fluid">
+        <div class="middle col-xs-12">
+            <h2 class="red-text">QR CODE</h2>
+            <h3 class="black-text">CHALLENGE</h3>
             <?php if($_SERVER["REQUEST_METHOD"] == "GET"): ?>
                 <div class='confirm'>
+                    Well done!
                     Please confirm your name to record this find.
                     <form id="confirm" name="confirm" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . "?code=$code"; ?>">
                         <select id="hunter-select" name="hunter-select">
@@ -74,6 +78,7 @@
                     </form>
                 </div>
             <?php else: ?>
+                <div class='lead'> <?php echo $messages[$code]; ?> </div>
                 <div class='clue'> <?php echo $clues[$code]; ?> </div>
             <?php endif; ?>
         </div>
