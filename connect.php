@@ -5,14 +5,22 @@
     if ($dburl == null) {
         $user = 'root';
         $pass = 'mysql';
-        $pdo = new PDO('mysql:host=localhost;dbname=scavanger_hunt', $user, $pass);
+        $host = 'localhost';
+        $dbname = 'dbname';
+        $dns = "mysql:host=$host;dbname=$dbname";
     } else {
-        try {
-            $pdo = new PDO($dburl);
-        } catch (PDOException $e) {
-            echo "dburl: " . $dburl . "<br>";
-            echo 'Connection failed: ' . $e->getMessage();
-        }
+        $user = getenv('DATABASE_USER');
+        $pass = getenv('DATABASE_URL');
+        $host = getenv('DATABASE_PASSWORD');
+        $dbname = getenv('DATABASE_NAME');
+        $dns = "mysql:host=$host;dbname=$dbname";   
+    }
+        
+    try {
+        $pdo = new PDO($dns, $user, $pass);
+    } catch (PDOException $e) {
+        echo "dns: " . $dns . "<br>";
+        echo 'Connection failed: ' . $e->getMessage();
     }
 
 ?>
