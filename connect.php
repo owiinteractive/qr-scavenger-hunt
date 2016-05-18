@@ -10,6 +10,7 @@
         try {
             $pdo = new PDO($dburl);
         } catch (PDOException $e) {
+            echo "dburl: " . $dburl . "<br>";
             echo 'Connection failed: ' . $e->getMessage();
         }
     }
