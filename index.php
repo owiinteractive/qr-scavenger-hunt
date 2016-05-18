@@ -50,6 +50,7 @@
 
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="bootstrap.min.css">
         <link rel="stylesheet" href="main.css">
