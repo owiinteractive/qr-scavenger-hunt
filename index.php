@@ -1,5 +1,9 @@
 <?php
 
+    $sessionCookieExpireTime=8*60*60;
+    session_set_cookie_params($sessionCookieExpireTime);
+    session_start();
+
     $code = $_GET['code'];
 
     if ($code == "JcPFvMiyqmf3cEfW") {
@@ -39,6 +43,8 @@
         
         $updateStmt = $pdo->prepare("UPDATE findings SET found=1 WHERE hunter_id=? AND clue_id=?;");
         $updateStmt->execute(array($hunter_id, $clue_id));
+        
+        $_SESSION["scavenger_id"] = $hunter_id;
     }
 ?>
 
@@ -52,36 +58,42 @@
         <script src="bootstrap.min.js"></script>
         <script src="index.js"></script>
     </head>
-    <body>
-        <div class="middle">
-            <div class="container-fluid card">
-                <h2 class="red-text">QR CODE</h2>
-                <h3 class="black-text">CHALLENGE</h3>
+    <body class="middle">
+        <div class="container card">
+            <div class="row">
+                <div class="col-xs-6"><img class="logo" src="school.png"></div>
+                <div class="col-xs-6"><img class="logo" src="logo.png"></div>
             </div>
-            <?php if($_SERVER["REQUEST_METHOD"] == "GET"): ?>
-                <div class='container-fluid info'>
-                    <h4>Well done!</h4>
-                    <h4>Please confirm your name to record this find.</h4>
-                    <form id="confirm" name="confirm" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . "?code=$code"; ?>">
-                        <select id="hunter-select" name="hunter-select">
-                            <?php
-                                echo "<option value=''>-- select --</option>";
-                                for ($i = 0; $i < count($hunters); $i++) {
-                                    $hunter_id = $hunters[$i]['id'];
-                                    $hunter_first = $hunters[$i]['first_name'];
-                                    $hunter_last = $hunters[$i]['last_name'];
+            <h2 class="red-text">QR CODE</h2>
+            <h3 class="black-text">CHALLENGE</h3>
+        </div>
+        <?php if($_SERVER["REQUEST_METHOD"] == "GET"): ?>
+            <div class='container info'>
+                <h4>Well done!</h4>
+                <h4>Please confirm your name to record this find and get the next clue.</h4>
+                <form id="confirm" name="confirm" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . "?code=$code"; ?>">
+                    <select id="hunter-select" name="hunter-select">
+                        <?php
+                            echo "<option value=''>-- select --</option>";
+                            for ($i = 0; $i < count($hunters); $i++) {
+                                $hunter_id = $hunters[$i]['id'];
+                                $hunter_first = $hunters[$i]['first_name'];
+                                $hunter_last = $hunters[$i]['last_name'];
+                                if ($_SESSION["scavenger_id"] != null && $_SESSION["scavenger_id"] == $hunter_id) {
+                                    echo "<option value='$hunter_id' selected='selected'>$hunter_first $hunter_last</option>";
+                                } else {
                                     echo "<option value='$hunter_id'>$hunter_first $hunter_last</option>";
                                 }
-                            ?>
-                        </select>
-                        <input id="confirm-button" type="submit" value="CONFIRM" disabled>
-                    </form>
-                </div>
-            <?php else: ?>
-                <div class='lead'> <?php echo $messages[$code]; ?> </div>
-                <div class='clue'> <?php echo $clues[$code]; ?> </div>
-            <?php endif; ?>
-        </div>
+                            }
+                        ?>
+                    </select>
+                    <input id="confirm-button" type="submit" value="CONFIRM" disabled>
+                </form>
+            </div>
+        <?php else: ?>
+            <div class='container lead'> <?php echo $messages[$code]; ?> </div>
+            <div class='container clue'> <?php echo $clues[$code]; ?> </div>
+        <?php endif; ?>
     </body>
 </html>
 
