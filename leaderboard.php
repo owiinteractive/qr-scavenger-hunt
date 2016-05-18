@@ -16,9 +16,7 @@
         }
     }
 
-    $user = 'root';
-    $pass = 'mysql';
-    $pdo = new PDO('mysql:host=localhost;dbname=scavanger_hunt', $user, $pass);
+    include 'connect.php';
 
     $hunterStmt = $pdo->prepare("SELECT * FROM hunters;");
     $hunterStmt->execute(array());
@@ -88,3 +86,7 @@
         </div>
     </body>
 </html>
+
+<?php
+    $pdo = null;
+?>

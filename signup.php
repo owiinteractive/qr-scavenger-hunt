@@ -8,9 +8,7 @@
           return $data;
         }
 
-        $user = 'root';
-        $pass = 'mysql';
-        $pdo = new PDO('mysql:host=localhost;dbname=scavanger_hunt', $user, $pass);
+        include 'connect.php';
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {            
             $first_name = test_input($_POST["first_name"]);

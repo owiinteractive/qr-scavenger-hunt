@@ -6,9 +6,7 @@
         Header("Location: signup.php");
     }
 
-    $user = 'root';
-    $pass = 'mysql';
-    $pdo = new PDO('mysql:host=localhost;dbname=scavanger_hunt', $user, $pass);
+    include 'connect.php';
 
     $fetchStmt = $pdo->prepare("SELECT * FROM hunters;");
     $fetchStmt->execute(array());
