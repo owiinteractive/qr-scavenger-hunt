@@ -60,7 +60,7 @@
         <script src="index.js"></script>
     </head>
     <body class="middle">
-        <div class="container card">
+        <div class="container-fluid card">
             <div class="row">
                 <div class="col-xs-6"><img class="logo" src="school.png"></div>
                 <div class="col-xs-6"><img class="logo" src="logo.png"></div>
@@ -69,7 +69,7 @@
             <h3 class="black-text">CHALLENGE</h3>
         </div>
         <?php if($_SERVER["REQUEST_METHOD"] == "GET"): ?>
-            <div class='container info'>
+            <div class='container-fluid info'>
                 <h4>Well done!</h4>
                 <h4>Please confirm your name to record this find and get the next clue.</h4>
                 <form id="confirm" name="confirm" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . "?code=$code"; ?>">
@@ -92,8 +92,8 @@
                 </form>
             </div>
         <?php else: ?>
-            <div class='container lead'> <?php echo $messages[$code]; ?> </div>
-            <div class='container clue'> <?php echo $clues[$code]; ?> </div>
+            <div class='container-fluid lead'> <?php echo $messages[$code]; ?> </div>
+            <div class='container-fluid clue'> <?php echo $clues[$code]; ?> </div>
         <?php endif; ?>
     </body>
 </html>

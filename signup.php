@@ -68,7 +68,7 @@
         <script src="bootstrap.min.js"></script>
     </head>
     <body class="middle">
-        <div class="container card">
+        <div class="container-fluid card">
             <div class="row">
                 <div class="col-xs-6"><img class="logo" src="school.png"></div>
                 <div class="col-xs-6"><img class="logo" src="logo.png"></div>
@@ -77,21 +77,21 @@
             <h3 class="black-text">CHALLENGE</h3>
         </div>
         <?php if($_SERVER["REQUEST_METHOD"] == "POST" && $valid): ?>
-            <div class="container lead">
+            <div class="container-fluid lead">
                 <?php
                     echo "Thank you for signing up $first_name $last_name <br>
                     Your scavenger number is $id. <br>
                     Here is your first clue. Good luck!";
                 ?>
             </div>
-            <div class="container clue">
+            <div class="container-fluid clue">
                 Blood, sweat, toil and tears<br>
                 All this work is a culmination of years<br>
                 I am hidden amongst pages<br>
                 Of all the student work throughout the ages<br>
             </div>
         <?php else: ?>
-            <div class='container info'>
+            <div class='container-fluid info'>
                 <h4>Please enter your name so we can track which codes you find.</h4>
                 <?php
                     if ($_SERVER["REQUEST_METHOD"] == "POST" && !$valid) {
