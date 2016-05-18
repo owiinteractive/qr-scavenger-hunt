@@ -1,3 +1,8 @@
+body {
+    background-color: #D73F2B;
+    color: #ffffff;
+}
+
 body * {
     font-family: 'Nunito', sans-serif;
 }
@@ -5,7 +10,6 @@ body * {
 h1,h2,h3,h4,h5,h6 {
     font-weight: bold;
     text-transform: uppercase;
-    color: #000000;
     margin: 0;
 }
 
@@ -13,9 +17,22 @@ h1,h2,h3,h4,h5,h6 {
     text-align: center;
 }
 
-.confirm,.clue {
-    background-color: #D73F2B;
-    color: #ffffff;
+.card {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px 5px 10px 5px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+.info h4 {
+    margin-top: 10px;
+}
+
+.lead, .clue, .intro {
+    margin-top: 10px;
 }
 
 .yes {
@@ -26,16 +43,21 @@ h1,h2,h3,h4,h5,h6 {
     background-color: lightcoral;
 }
 
-.red-text {
+.card .red-text {
     color: #D73F2B;
 }
 
-.confirm input[type=submit] {
+input[type=submit] {
     background-color: white;
     color: #D73F2B;
     padding: 5px;
     border-radius: 5px;
     border: none;
+    min-width: 150px;
+}
+
+.padtop {
+    padding-top: 5px;
 }
 
 input[disabled] {

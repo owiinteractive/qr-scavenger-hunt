@@ -60,9 +60,11 @@
         <script src="bootstrap.min.js"></script>
     </head>
     <body>
-        <div>
-            <h2 class="red-text">QR CODE</h2>
-            <h3 class="black-text">CHALLENGE</h3>
+        <div class="middle">
+            <div class="container-fluid card">
+                <h2 class="red-text">QR CODE</h2>
+                <h3 class="black-text">CHALLENGE</h3>
+            </div>
             <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST" && !$valid) {
                     echo "<div class='error'>$error</div>";
@@ -83,13 +85,25 @@
                     Of all the student work throughout the ages<br>
                 </div>
             <?php else: ?>
-                <div class='intro'>Please enter your name so we can track which codes you find.</div>
+                <div class='container-fluid info'>
+                    <h4>Please enter your name so we can track which codes you find.</h4>
+                </div>
                 <form id="signup" name="signup" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-                    <label for="first_name">First Name:</label>
-                    <input name="first_name" type="text">
-                    <label for="last_name">Last Name:</label>
-                    <input name="last_name" type="text">
-                    <input type="submit" value="START">
+                    <div class="col-xs-6">
+                        <label for="first_name">First Name:</label>
+                    </div>
+                    <div class="col-xs-6">
+                        <input name="first_name" type="text">
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="last_name">Last Name:</label>
+                    </div>
+                    <div class="col-xs-6">
+                        <input name="last_name" type="text">
+                    </div>
+                    <div class="padtop col-xs-12">
+                        <input type="submit" value="START!">
+                    </div>
                 </form>
             <?php endif; ?>
         </div>

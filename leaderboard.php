@@ -49,9 +49,11 @@
         <script src="jquery.js"></script>
         <script src="bootstrap.min.js"></script>
     </head>
-    <body class="container-fluid">
-        <h2 class="red-text">QR CODE</h2>
-        <h3 class="black-text">CHALLENGE</h3>
+    <body class="middle">
+        <div class="container-fluid card">
+            <h2 class="red-text">QR CODE</h2>
+            <h3 class="black-text">CHALLENGE</h3>
+        </div>
         <div class="col-xs-12">
             <table>
                 <thead>

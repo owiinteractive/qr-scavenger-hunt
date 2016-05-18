@@ -52,14 +52,16 @@
         <script src="bootstrap.min.js"></script>
         <script src="index.js"></script>
     </head>
-    <body class="container-fluid">
-        <div class="middle col-xs-12">
-            <h2 class="red-text">QR CODE</h2>
-            <h3 class="black-text">CHALLENGE</h3>
+    <body>
+        <div class="middle">
+            <div class="container-fluid card">
+                <h2 class="red-text">QR CODE</h2>
+                <h3 class="black-text">CHALLENGE</h3>
+            </div>
             <?php if($_SERVER["REQUEST_METHOD"] == "GET"): ?>
-                <div class='confirm'>
-                    Well done!
-                    Please confirm your name to record this find.
+                <div class='container-fluid info'>
+                    <h4>Well done!</h4>
+                    <h4>Please confirm your name to record this find.</h4>
                     <form id="confirm" name="confirm" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . "?code=$code"; ?>">
                         <select id="hunter-select" name="hunter-select">
                             <?php
