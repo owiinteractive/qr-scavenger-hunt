@@ -6,12 +6,12 @@
         $user = 'root';
         $pass = 'mysql';
         $host = 'localhost';
-        $dbname = 'dbname';
+        $dbname = 'scavenger_hunt';
         $dns = "mysql:host=$host;dbname=$dbname";
     } else {
         $user = getenv('DATABASE_USER');
-        $pass = getenv('DATABASE_URL');
-        $host = getenv('DATABASE_PASSWORD');
+        $pass = getenv('DATABASE_PASSWORD');
+        $host = getenv('DATABASE_HOST');
         $dbname = getenv('DATABASE_NAME');
         $dns = "mysql:host=$host;dbname=$dbname";   
     }
