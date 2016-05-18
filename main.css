@@ -86,10 +86,5 @@ input[disabled] {
 }
 
 .logo {
-    width: 100%;
-}
-
-.row {
-    margin-left: 0;
-    margin-right: 0;
+    width: 95%;
 }

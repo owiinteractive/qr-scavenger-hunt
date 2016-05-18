@@ -69,10 +69,8 @@
     </head>
     <body class="middle">
         <div class="container-fluid card">
-            <div class="row">
-                <div class="col-xs-6"><img class="logo" src="school.png"></div>
-                <div class="col-xs-6"><img class="logo" src="logo.png"></div>
-            </div>
+            <div class="col-xs-6"><img class="logo" src="school.png"></div>
+            <div class="col-xs-6"><img class="logo" src="logo.png"></div>
             <h2 class="red-text">QR CODE</h2>
             <h3 class="black-text">CHALLENGE</h3>
         </div>
