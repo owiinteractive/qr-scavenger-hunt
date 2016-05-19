@@ -24,15 +24,15 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 form {
-    margin-top: 10px;
+    padding-top: 10px;
 }
 
-.info h4 {
-    margin-top: 10px;
+h4 {
+    padding-top: 10px;
 }
 
 .lead, .clue, .intro {
-    margin-top: 10px;
+    padding-top: 10px;
 }
 
 .yes {
@@ -56,13 +56,23 @@ input {
     min-width: 150px;
 }
 
-input[type=submit] {
+input, select {
     background-color: white;
     color: #D73F2B;
     padding: 5px;
     border-radius: 5px;
     border: none;
     min-width: 150px;
+}
+
+.card .draw-btn {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    min-width: 150px;
+    margin-top: 20px;
 }
 
 .padtop {
@@ -87,4 +97,32 @@ input[disabled] {
 
 .logo {
     width: 95%;
+}
+
+table {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%
+}
+
+thead, tr {
+    width: 100%;
+}
+
+.long {
+    width: 10%;
+}
+
+.short {
+    width: 5%;
+}
+
+th {
+    font-size: 20px;
+}
+
+.winner {
+    margin-top: 20px;
+    border: 5px solid black;
+    display: none;
 }

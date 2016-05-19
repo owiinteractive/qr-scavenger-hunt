@@ -7,13 +7,15 @@
         public $lastName;
         public $findingsMap;
         
-        public function getFindingByClue($clue_id) {
-            if ($findingsMap[$clue_id] === 0) {
-                return "no";
-            } else {
-                return "yes";
+        public function isEligible() {
+            foreach($this->findingsMap as $key => $value) {
+                if ($value == 0) {
+                    return false;
+                }
             }
+            return true;
         }
+        
     }
 
     include 'connect.php';
@@ -48,24 +50,30 @@
         
         <script src="jquery.js"></script>
         <script src="bootstrap.min.js"></script>
+        <script src="leaderboard.js"></script>
     </head>
     <body class="middle">
         <div class="container-fluid card">
-            <h2 class="red-text">QR CODE</h2>
-            <h3 class="black-text">CHALLENGE</h3>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img class="logo" src="school.png"></div>
+            <div class="col-xs-0 col-sm-4 col-md-6 col-lg-8"></div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img class="logo" src="logo.png"></div>
+            <div class="col-xs-12">
+                <h2 class="red-text">QR CODE</h2>
+                <h3 class="black-text">CHALLENGE</h3>
+            </div>
         </div>
         <div class="col-xs-12">
             <table>
                 <thead>
                     <tr>
-                        <th>Scavenger</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>QR1</th>
-                        <th>QR2</th>
-                        <th>QR3</th>
-                        <th>QR4</th>
-                        <th>QR5</th>
+                        <th class="long">Scavenger</th>
+                        <th class="long">First Name</th>
+                        <th class="long">Last Name</th>
+                        <th class="short">QR1</th>
+                        <th class="short">QR2</th>
+                        <th class="short">QR3</th>
+                        <th class="short">QR4</th>
+                        <th class="short">QR5</th>
                     </tr>
                 </thead>
                 <?php foreach($hunters as $hunter): ?>
@@ -85,6 +93,19 @@
                 </tr>
                 <?php endforeach; ?>
             </table>
+            <div class="card">
+                <div class="draw-pool">
+                    <h3>The following scavengers have found all the QR codes and are eligible to win the grand prize.</h3>
+                    <br>
+                    <?php foreach($hunters as $hunter): ?>
+                        <?php if($hunter->isEligible()): ?>
+                            <h4 class="eligible"> <?php echo $hunter->firstName . " " . $hunter->lastName . " (" . $hunter->id . ") " ?> </h4>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+                <button class="draw-btn">DRAW PRIZE!</button>
+                <h2 class="winner"></h2>
+            </div>
         </div>
     </body>
 </html>

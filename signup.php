@@ -69,8 +69,9 @@
     </head>
     <body class="middle">
         <div class="container-fluid card">
-            <div class="col-xs-6"><img class="logo" src="school.png"></div>
-            <div class="col-xs-6"><img class="logo" src="logo.png"></div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img class="logo" src="school.png"></div>
+            <div class="col-xs-0 col-sm-4 col-md-6 col-lg-8"></div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img class="logo" src="logo.png"></div>
             <div class="col-xs-12">
                 <h2 class="red-text">QR CODE</h2>
                 <h3 class="black-text">CHALLENGE</h3>
@@ -108,13 +109,13 @@
                             <label for="first_name">First Name:</label>
                         </div>
                         <div class="col-xs-6">
-                            <input name="first_name" type="text" value="<?php echo $first_name; ?>">
+                            <input style="width: 100%" name="first_name" type="text" value="<?php echo $first_name; ?>">
                         </div>
                         <div class="col-xs-6">
                             <label for="last_name">Last Name:</label>
                         </div>
                         <div class="col-xs-6">
-                            <input name="last_name" type="text" value="<?php echo $last_name; ?>">
+                            <input style="width: 100%" name="last_name" type="text" value="<?php echo $last_name; ?>">
                         </div>
                         <div class="padtop col-xs-12">
                             <input type="submit" value="START!">

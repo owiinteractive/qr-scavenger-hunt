@@ -25,10 +25,10 @@
 
     $clues = array();
     $clues["crif2nkrth647t0A"] = "Processes are followed<br> Processes are made<br> I am hidden amongst<br> The documents displayed";
-    $clues["AAMWFUmNgfiPQLj6"] = "Test your mettle against the computer station<br> Reach level 5 at the programming location<br> When you are done take a photo of yourself to prove your worth<br> And present it to the lecturer with the red shirt";
-    $clues["DBIhu5CmyGkpQAaE"] = "Form follows function, sometimes ...<br> Less is more, or maybe Less is a bore ...<br> Let's take a walk to A4<br> Products surround, products abound, You will now need to look around";
-    $clues["sEPSsfILPBdWtolW"] = "I am hidden somewhere in the classroom<br> You just haven't looked<br> Search for me in every cranny<br> Search for me in every nook";
-    $clues["Wcb4nHQ8WydYfTEZ"] = "You have reached the end of the scavenger hunt. The winner will be drawn at 13:00.";
+    $clues["AAMWFUmNgfiPQLj6"] = "Test your mettle against the computer station<br> Reach level 5 at the programming location<br> When you are done take a photo of yourself to prove your worth<br>And present it to the lecturer with the red tie and black shirt.";
+    $clues["DBIhu5CmyGkpQAaE"] = "Form follows function, sometimes ...<br> Less is more, or maybe Less is a bore ...<br> Let's take a walk to A4<br> Products surround, products abound,<br> You will now need to look around";
+    $clues["sEPSsfILPBdWtolW"] = "I am hidden somewhere in the classroom from whence you came<br> You just haven't looked<br> Search for me in every cranny<br> Search for me in every nook";
+    $clues["Wcb4nHQ8WydYfTEZ"] = "You have reached the end of the scavenger hunt. If you found all the QR codes, your name has been entered into the prize draw. The winner will be drawn at 13:00.";
 
     $ids = array();
     $ids["crif2nkrth647t0A"] = 1;
@@ -61,18 +61,23 @@
     </head>
     <body class="middle">
         <div class="container-fluid card">
-            <div class="col-xs-6"><img class="logo" src="school.png"></div>
-            <div class="col-xs-6"><img class="logo" src="logo.png"></div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img class="logo" src="school.png"></div>
+            <div class="col-xs-0 col-sm-4 col-md-6 col-lg-8"></div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"><img class="logo" src="logo.png"></div>
             <div class="col-xs-12">
                 <h2 class="red-text">QR CODE</h2>
                 <h3 class="black-text">CHALLENGE</h3>
             </div>
         </div>
         <?php if($_SERVER["REQUEST_METHOD"] == "GET"): ?>
-            <div class='container-fluid info'>
+            <div class='container-fluid lead card'>
                 <div class="col-xs-12">
                     <h4>Well done!</h4>
                     <h4>Please confirm your name to record this find and get the next clue.</h4>
+                </div>
+            </div>
+            <div class='container-fluid info'>
+                <div class="col-xs-12">
                     <form id="confirm" name="confirm" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . "?code=$code"; ?>">
                         <select id="hunter-select" name="hunter-select">
                             <?php
@@ -94,7 +99,7 @@
                 </div>
             </div>
         <?php else: ?>
-            <div class='container-fluid lead'><div class="col-xs-12"> <?php echo $messages[$code]; ?> </div></div>
+            <div class='container-fluid lead card'><div class="col-xs-12"> <?php echo $messages[$code]; ?> </div></div>
             <div class='container-fluid clue'><div class="col-xs-12"> <?php echo $clues[$code]; ?> </div></div>
         <?php endif; ?>
     </body>

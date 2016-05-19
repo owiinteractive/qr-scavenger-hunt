@@ -4,10 +4,10 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
-        $stmt = $pdo->prepare("CREATE TABLE IF NOT EXISTS findings (id int(11) AUTO_INCREMENT NOT NULL,hunter_id int(11) NOT NULL,clue_id int(11) NOT NULL,found tinyint(1) NOT NULL DEFAULT '0', PRIMARY KEY (id));");
+        $stmt = $pdo->prepare("CREATE TABLE IF NOT EXISTS findings (id int AUTO_INCREMENT NOT NULL,hunter_id int NOT NULL,clue_id int NOT NULL,found tinyint(1) NOT NULL DEFAULT '0', PRIMARY KEY (id));");
         $stmt->execute(array());
 
-        $stmt = $pdo->prepare("CREATE TABLE IF NOT EXISTS hunters (id int(11) AUTO_INCREMENT NOT NULL,first_name varchar(60) NOT NULL,last_name varchar(60) NOT NULL, PRIMARY KEY (id));");
+        $stmt = $pdo->prepare("CREATE TABLE IF NOT EXISTS hunters (id int AUTO_INCREMENT NOT NULL,first_name varchar(60) NOT NULL,last_name varchar(60) NOT NULL, PRIMARY KEY (id));");
         $stmt->execute(array());
     }
     
