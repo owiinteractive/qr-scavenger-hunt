@@ -1,5 +1,10 @@
 <?php
 
+    $required = $_GET["required"];
+    if ($required == null) {
+        $required = 5;
+    }
+
     class Hunter {
         
         public $id;
@@ -7,13 +12,14 @@
         public $lastName;
         public $findingsMap;
         
-        public function isEligible() {
+        public function codesFound() {
+            $count = 0;
             foreach($this->findingsMap as $key => $value) {
-                if ($value == 0) {
-                    return false;
+                if ($value != 0) {
+                    $count = $count+1;
                 }
             }
-            return true;
+            return $count;
         }
         
     }
@@ -95,10 +101,11 @@
             </table>
             <div class="card">
                 <div class="draw-pool">
-                    <h3>The following scavengers have found all the QR codes and are eligible to win the grand prize.</h3>
+                    <h3><?php echo $required . " QR code finds are required to be eligible." ?></h3>
+                    <h3>The following scavengers are eligible to win the grand prize.</h3>
                     <br>
                     <?php foreach($hunters as $hunter): ?>
-                        <?php if($hunter->isEligible()): ?>
+                        <?php if($hunter->codesFound() >= $required): ?>
                             <h4 class="eligible"> <?php echo $hunter->firstName . " " . $hunter->lastName . " (" . $hunter->id . ") " ?> </h4>
                         <?php endif; ?>
                     <?php endforeach; ?>
